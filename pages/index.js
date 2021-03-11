@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css';
-import Users from '../components/UserFetch'
 
-export default function Home() {
+function Home( {data} ) {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +13,9 @@ export default function Home() {
         <h1 className={styles.title}>
           Random User API
         </h1>
-        <Users />
+        <div>Users: {data.results.map(user => {
+          return <div key={user.email}>{user.name.title}. {user.name.first} {user.name.last}</div>
+        })}</div>
       </main>
       <footer className={styles.footer}>
         <a
@@ -29,3 +30,11 @@ export default function Home() {
     </div>
   )
 }
+
+Home.getInitialProps = async () => {
+  const res = await fetch('https://randomuser.me/api/?results=10')
+  const json = await res.json()
+  return { data: json }
+}
+
+export default Home
