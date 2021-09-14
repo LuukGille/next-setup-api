@@ -1,3 +1,5 @@
+Medium link: https://lgille.medium.com/create-a-server-side-rendering-application-using-react-js-and-next-js-2e1806272f00
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
